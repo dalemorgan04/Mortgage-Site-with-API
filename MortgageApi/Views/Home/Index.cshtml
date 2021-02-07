@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <h2>
+                    Developer Case Study Demo
+                </h2>
+                <h3>by Dale Morgan</h3>
+                <p>
+                    To start the customer journey start here.
+                </p>
+                <p>
+                    @Html.ActionLink("Start Demo","GetCreate","Customer", null, new {Class="btn btn-success"})
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                Tools to explore the solution outside of requirements
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header">
+                    Customer Records
+                </h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        View and amend the Customer table
+                    </p>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Customers", "Index", "Customer",null, new {Class="btn btn-primary"})
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header">
+                    Mortgage Product Records
+                </h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        View the Mortgage Products table
+                    </p>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Mortgages", "Index", "Mortgage", null, new {Class="btn btn-primary"})
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <h5 class="card-header">
+                    API Explorer
+                </h5>
+                <div class="card-body">
+                    <p class="card-text">
+                        Using the Swagger tool you are able to test the API in the browser
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <a href="/swagger" class="btn btn-primary">API Explorer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

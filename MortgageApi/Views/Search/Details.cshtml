@@ -1,0 +1,36 @@
+﻿@model MortgageApi.ViewModels.SearchNS.SearchDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Mortgage Details</h1>
+<p>Your interest in this mortgage has been noted</p>
+<div>
+    <h4>Mortgage</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Bank
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Mortgage.BankName
+        </dd>
+        <dt class="col-sm-2">
+            Interest (APRC)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Mortgage.InterestRate.ToString("##")%
+        </dd>
+        <dt class="col-sm-2">
+            Type
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Mortgage.MortgageTypeName
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.RouteLink("Back to Results", "GetSearchResults", new { id = Model.SearchId}, new { Class = "btn btn-primary" })
+</div>

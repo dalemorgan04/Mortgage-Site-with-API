@@ -1,0 +1,44 @@
+﻿@model MortgageApi.ViewModels.MortgageNS.SearchResultsViewModel
+
+<h1>Your Mortgages</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label class="control-label">Property value: @Model.PropertyValue.ToString("#.##")</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Deposit: @Model.Deposit.ToString("#.##")</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Loan to value: @Model.LoanToValue.ToString("###%")</label>
+        </div>
+        <div class="form-group">
+            @Html.RouteLink("New Search", "GetSearchCriteria", new { CustomerId = Model.CustomerId }, new { Class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bank</th>
+            <th>APRC</th>
+            <th>Mortgage Type</th>
+            <th>Max Loan to Value</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mortgage in Model.Mortgages)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => mortgage.BankName)</td>
+            <td>@mortgage.InterestRate.ToString("#.##")%</td>
+            <td>@Html.DisplayFor(modelItem => mortgage.MortgageTypeName)</td>
+            <td>@mortgage.LoanToValueMax.ToString("#")%</td>
+            <td>
+                @Html.RouteLink("View", "GetSearchDetails", new { sid = Model.SearchId, mid = mortgage.Id }, new { Class = "btn btn-outline-success" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+﻿@model MortgageApi.ViewModels.MortgageNS.MortgagesViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>All Mortgage Products</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Interest Rate</th>
+            <th>Type</th>
+            <th>Maximum Loan to Value</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var mortgage in Model.Mortgages) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => mortgage.InterestRate)</td>
+            <td>@Html.DisplayFor(modelItem => mortgage.MortgageTypeName)</td>
+            <td>@Html.DisplayFor(modelItem => mortgage.LoanToValueMax)</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@mortgage.Id">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
