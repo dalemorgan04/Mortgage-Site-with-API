@@ -6,7 +6,7 @@
 }
 
 <h1>Mortgage Details</h1>
-<p>Your interest in this mortgage has been noted</p>
+<p>Your interest in this mortgage has been noted in this related search</p>
 <div>
     <h4>Mortgage</h4>
     <hr />
@@ -21,7 +21,7 @@
             Interest (APRC)
         </dt>
         <dd class="col-sm-10">
-            @Model.Mortgage.InterestRate.ToString("##")%
+            @Model.Mortgage.InterestRate.ToString("#.##")%
         </dd>
         <dt class="col-sm-2">
             Type

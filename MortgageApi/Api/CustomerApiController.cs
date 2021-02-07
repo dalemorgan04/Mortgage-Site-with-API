@@ -23,7 +23,7 @@ namespace MortgageApi.API
             _customerService = customerService;
         }
 
-        [HttpPost("api/customer/create")]
+        [HttpPost("create")]
         public async Task<IActionResult> CreateCustomer([FromBody] string value)
         {
             try

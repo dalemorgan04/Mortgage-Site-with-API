@@ -15,7 +15,6 @@ namespace MortgageApi.API
 {
     [Route("api/mortgage")]
     [ApiController]
-    [Produces("application/json")]
     public class MortgageApiController : ControllerBase
     {
         private readonly IMortgageService _mortgageService;
@@ -29,7 +28,7 @@ namespace MortgageApi.API
             _searchService = searchService;
         }
 
-        [HttpGet("api/mortgage/search")]
+        [HttpGet("search")]
         public async Task<IActionResult> Search(
             [FromQuery(Name = "customer_id")] Guid customerId,
             [FromQuery(Name = "property_value")] decimal propertyValue,
@@ -75,7 +74,7 @@ namespace MortgageApi.API
 
         //Tried both get and post to compare primitive and complex parameters
         //Also compared Json Result to HttpAction
-        [HttpPost("api/mortgage/search/post")]
+        [HttpPost("search/post")]
         public async Task<JsonResult> SearchPost([FromBody] string value)
         {
             try
